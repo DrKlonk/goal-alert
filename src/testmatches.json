@@ -1,0 +1,166 @@
+[
+    {
+        "id": 302125,
+        "competition": {
+            "id": 2003,
+            "name": "Eredivisie",
+            "area": {
+                "name": "Netherlands",
+                "code": "NLD",
+                "ensignUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg"
+            }
+        },
+        "season": {
+            "id": 615,
+            "startDate": "2020-09-12",
+            "endDate": "2021-05-16",
+            "currentMatchday": 15,
+            "winner": null
+        },
+        "utcDate": "2021-01-09T19:00:00Z",
+        "status": "IN_PLAY",
+        "matchday": 15,
+        "stage": "REGULAR_SEASON",
+        "group": "Regular Season",
+        "lastUpdated": "2021-01-09T19:46:24Z",
+        "odds": {
+            "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+        },
+        "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+                "homeTeam": 1,
+                "awayTeam": 1
+            },
+            "halfTime": {
+                "homeTeam": 1,
+                "awayTeam": 0
+            },
+            "extraTime": {
+                "homeTeam": null,
+                "awayTeam": null
+            },
+            "penalties": {
+                "homeTeam": null,
+                "awayTeam": null
+            }
+        },
+        "homeTeam": {
+            "id": 684,
+            "name": "PEC Zwolle"
+        },
+        "awayTeam": {
+            "id": 682,
+            "name": "AZ"
+        },
+        "referees": [
+            {
+                "id": 43902,
+                "name": "Kevin Blom",
+                "role": "MAIN_REFEREE",
+                "nationality": "Netherlands"
+            },
+            {
+                "id": 56913,
+                "name": "Erik Kleinjan",
+                "role": "ASSISTANT_N1",
+                "nationality": "Netherlands"
+            },
+            {
+                "id": 56915,
+                "name": "Richard Polman",
+                "role": "ASSISTANT_N2",
+                "nationality": "Netherlands"
+            },
+            {
+                "id": 82103,
+                "name": "Jesse Rozendal",
+                "role": "FOURTH_OFFICIAL",
+                "nationality": "Netherlands"
+            }
+        ]
+    },
+    {
+        "id": 302124,
+        "competition": {
+            "id": 2003,
+            "name": "Eredivisie",
+            "area": {
+                "name": "Netherlands",
+                "code": "NLD",
+                "ensignUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg"
+            }
+        },
+        "season": {
+            "id": 615,
+            "startDate": "2020-09-12",
+            "endDate": "2021-05-16",
+            "currentMatchday": 15,
+            "winner": null
+        },
+        "utcDate": "2021-01-09T19:00:00Z",
+        "status": "IN_PLAY",
+        "matchday": 15,
+        "stage": "REGULAR_SEASON",
+        "group": "Regular Season",
+        "lastUpdated": "2021-01-09T20:33:24Z",
+        "odds": {
+            "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+        },
+        "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+                "homeTeam": 1,
+                "awayTeam": 1
+            },
+            "halfTime": {
+                "homeTeam": 0,
+                "awayTeam": 1
+            },
+            "extraTime": {
+                "homeTeam": null,
+                "awayTeam": null
+            },
+            "penalties": {
+                "homeTeam": null,
+                "awayTeam": null
+            }
+        },
+        "homeTeam": {
+            "id": 671,
+            "name": "Heracles Almelo"
+        },
+        "awayTeam": {
+            "id": 679,
+            "name": "SBV Vitesse"
+        },
+        "referees": [
+            {
+                "id": 43899,
+                "name": "Danny Makkelie",
+                "role": "MAIN_REFEREE",
+                "nationality": "Netherlands"
+            },
+            {
+                "id": 43900,
+                "name": "Hessel Steegstra",
+                "role": "ASSISTANT_N1",
+                "nationality": "Netherlands"
+            },
+            {
+                "id": 15154,
+                "name": "Jan de Vries",
+                "role": "ASSISTANT_N2",
+                "nationality": "Netherlands"
+            },
+            {
+                "id": 125517,
+                "name": "Nick Smit",
+                "role": "FOURTH_OFFICIAL",
+                "nationality": "Netherlands"
+            }
+        ]
+    }
+]
