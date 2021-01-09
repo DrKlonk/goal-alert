@@ -28,7 +28,7 @@ import MatchTable from './MatchTable.vue'
 
 export default {
   name: 'Container',
-  
+
   components: {
     MatchTable,
     CurrentMatches
