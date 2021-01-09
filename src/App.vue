@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <maina />
+    <container />
   </div>
 </template>
 
 <script>
-import Maina from './components/Main.vue'
+import Container from './components/Container.vue'
 
 export default {
   name: 'App',
   components: {
-    Maina
+    Container
   }
 }
 </script>
