@@ -5,9 +5,7 @@
         <h1 class="md-title">Live scores</h1>
       </md-table-toolbar>
       <div v-if="!matches.length">
-        <md-table-row>
-          <h1>Op dit moment is er geen wedstrijd bezig</h1>
-        </md-table-row>
+        <h1>Op dit moment is er geen wedstrijd bezig</h1>
       </div>
 
       <md-table-row v-for="match in matches" :key="match.id">
@@ -64,5 +62,9 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.no-matches {
+  width: 100%;
+  text-align: center;
 }
 </style>
