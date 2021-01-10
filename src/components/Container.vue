@@ -23,8 +23,8 @@
 <script>
 import CurrentMatches from './CurrentMatches.vue'
 import MatchTable from './MatchTable.vue'
-// import testMatches from '../testmatches.json'
-// import oldMatches from '../oldmatches.json'
+// import testmatches from '../testmatches.json'
+// import oldmatches from '../oldmatches.json'
 
 export default {
   name: 'Container',
@@ -71,7 +71,7 @@ export default {
       return this.matches.filter(m => m.status === 'FINISHED' && this.oldMatches.find(om => om.id === m.id).status === 'IN_PLAY').length > 0
     },
     hasAGoalBeenScored () {
-      return this.currentMatches.filter(cm => cm.score.fullTime !== this.oldMatches.find(om => om.id === cm.id).score.fullTime).length > 0
+      return this.currentMatches.filter(cm => Object.values(cm.score.fullTime) !== Object.values(this.oldMatches.find(om => om.id === cm.id).score.fullTime)).length > 0
     }
   },
 
@@ -110,7 +110,7 @@ export default {
           this.matches = result.matches
           // this.oldMatches = oldmatches
           // this.matches = testmatches
-          if (this.matches.length && this.oldMatches.length) {
+          if (this.matches.length === this.oldMatches.length) {
             this.runNotificationChecks()
           }
         })
@@ -137,12 +137,15 @@ export default {
     },
     runNotificationChecks () {
       if (this.hasAGoalBeenScored) {
+        alert('goal scored!')
         // run goal notification
       }
       if (this.isMatchStarting) {
+        alert('match starting')
         // run match start notification
       }
       if (this.isMatchFinished) {
+        alert('match finished')
         // run match finished notification
       }
     }
