@@ -3,6 +3,7 @@ import VueMaterial from 'vue-material'
 import App from './App.vue'
 
 import 'vue-material/dist/vue-material.min.css'
+import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
