@@ -8,7 +8,7 @@
       <match-table
         :matches="scheduledMatches"
         :team-id="teamId"
-        :title="'Komende wedstrijden'"
+        :title="'Komende wedgbfstrijden'"
       />
       <match-table
         :matches="finishedMatches"
@@ -23,8 +23,6 @@
 <script>
 import CurrentMatches from './CurrentMatches.vue'
 import MatchTable from './MatchTable.vue'
-// import testmatches from '../testmatches.json'
-// import oldmatches from '../oldmatches.json'
 
 export default {
   name: 'Container',
@@ -155,10 +153,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 div .root {
-  font-family: 'Nunito';
   max-width: 800px;
   margin: 0 auto;
 }
