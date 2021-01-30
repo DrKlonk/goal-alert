@@ -8,7 +8,7 @@
       <match-table
         :matches="scheduledMatches"
         :team-id="teamId"
-        :title="'Komende wedgbfstrijden'"
+        :title="'Komende wedstrijden'"
       />
       <match-table
         :matches="finishedMatches"
