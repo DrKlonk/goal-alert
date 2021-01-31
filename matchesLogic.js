@@ -64,7 +64,9 @@ function runNotificationChecks () {
   // Match in 10 hours
   if (upcomingMatch) {
     const derp = new Date(upcomingMatch.utcDate)
-    if ((Math.round(derp.getTime() / 60000) - Math.round(Date.now() / 60000)) === 600) {
+    const minutesToNextMatch = Math.round(derp.getTime() / 60000) - Math.round(Date.now() / 60000)
+    console.log(minutesToNextMatch)
+    if (minutesToNextMatch === 600) {
       sendNotifications('Wedstrijd over 10 uur!!!!')
     }
   }

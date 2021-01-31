@@ -1,6 +1,7 @@
 module.exports = {
   pwa: {
-    name: 'my-asdfasdf',
+    name: 'Atalanta Goal Alert',
+    short_name: 'Atalantaaaa!'
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: 'src/service-worker.js'
