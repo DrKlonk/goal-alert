@@ -37,32 +37,10 @@ app.post('/subscribe', (req, res) => {
       return res.json(data)
     })
     .catch(err => console.error(err))
-
-  // res.status(201).json({})
-  console.log('Subscribed!')
 })
 
-// app.post('/notify', (req, res) => {
-//   // Create payload for the notification
-//   const payload = JSON.stringify({
-//     title: req.body.title
-//   })
-//   // Get all subs from the DB
-//   Subscription.find({})
-//     .then((subs) => {
-//       subs.forEach(sub => {
-//         webPush.sendNotification(sub, payload)
-//       })
-//     })
-//     .then(() => {
-//       res.status(201)
-//       res.send()
-//     })
-//     .catch(err => { console.error(err) })
-// })
-
 // Query for notifications every minute
-setInterval(matchesLogic.getMatches, 5000)
+setInterval(matchesLogic.getMatches, 60000)
 
 const port = process.env.PORT || 5001
 app.listen(port, () => {

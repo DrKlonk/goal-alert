@@ -4,6 +4,11 @@ const webPush = require('web-push')
 
 let matches = []
 let oldMatches = []
+const defaultOptions = {
+  title: 'test',
+  body: 'test',
+  icon: './dist/img/icons/apple-touc-icon.png'
+}
 
 function getMatches () {
   const url = 'https://api.football-data.org/v2/teams/102/matches'
@@ -34,21 +39,35 @@ function runNotificationChecks () {
   const currentMatches = matches.filter(
     f => f.status !== 'SCHEDULED' && f.status !== 'FINISHED'
   )
+  const upcomingMatch = matches
+    .filter(f => f.status === 'SCHEDULED')
+    .sort((a, b) => (a.utcDate < b.utcDate ? -1 : 1))[0]
 
+  // Goal scored
   if (currentMatches.filter(
     cm => Object.values(cm.score.fullTime) !== Object.values(
-      this.oldMatches.find(om => om.id === cm.id).score.fullTime
+      oldMatches.find(om => om.id === cm.id).score.fullTime
     )).length > 0) {
-    alert('goal scored!')
-    // run goal notification
+    sendNotifications('Er is gescoord!')
   }
 
-  sendNotifications(JSON.stringify({ title: 'test', body: 'ets' }))
-    .then(() => {
-      console.log('Everyone should get notified!')
-    })
-    .catch(err => console.error(err))
-    // run match start notification
+  // Match started
+  if (matches.filter(m => m.status === 'IN_PLAY' && oldMatches.find(om => om.id === m.id).status === 'SCHEDULED').length > 0) {
+    sendNotifications('De bal rolt!')
+  }
+
+  // Match finished
+  if (matches.filter(m => m.status === 'FINISHED' && oldMatches.find(om => om.id === m.id).status === 'IN_PLAY').length > 0) {
+    sendNotifications('Klaaaaarrrrr')
+  }
+
+  // Match in 10 hours
+  if (upcomingMatch) {
+    const derp = new Date(upcomingMatch.utcDate)
+    if ((Math.round(derp.getTime() / 60000) - Math.round(Date.now() / 60000)) === 600) {
+      sendNotifications('Wedstrijd over 10 uur!!!!')
+    }
+  }
 }
 
 function sendNotifications (payload) {
