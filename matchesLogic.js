@@ -69,6 +69,18 @@ function runNotificationChecks () {
     if (minutesToNextMatch === 600) {
       sendNotifications('Wedstrijd over 10 uur!!!!')
     }
+    if (minutesToNextMatch === 200) {
+      sendNotifications('test!!!!')
+    }
+    if (minutesToNextMatch === 180) {
+      sendNotifications('Wedstrijd over 3 uur!!!!')
+    }
+    if (minutesToNextMatch === 60) {
+      sendNotifications('Wedstrijd over 1 uur!!!!')
+    }
+    if (minutesToNextMatch === 5) {
+      sendNotifications('Zit je er klaar voorrroor?????')
+    }
   }
 }
 
