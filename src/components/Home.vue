@@ -39,7 +39,7 @@ export default {
     MatchDisplay
   },
   created () {
-    // this.getMatches()
+    this.getMatches()
   },
   methods: {
     getMatches () {
