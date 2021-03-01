@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <div class="bg-container"/>
     <home />
   </div>
 </template>

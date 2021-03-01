@@ -122,6 +122,10 @@ export default {
     display: flex;
     flex-direction: column;
     padding: .5rem;
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+    }
   }
 
   &__team {
