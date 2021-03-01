@@ -28,6 +28,21 @@ export default {
       return matchDate.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long' })
     },
     getMatchTime ({ status, utcDate }) {
+      if (status === 'PAUSED') {
+        return 'HT'
+      }
+      if (status === 'LIVE' || status === 'IN_PLAY') {
+        const matchDate = new Date(utcDate)
+        const matchDateMs = matchDate.getTime()
+        const nowDateMs = Date.now()
+
+        let minutesSinceKickoff = (nowDateMs - matchDateMs) / 1000 / 60
+
+        if (minutesSinceKickoff > 60) {
+          minutesSinceKickoff = minutesSinceKickoff - 15
+        }
+        return `${Math.ceil(minutesSinceKickoff)}'`
+      }
       if (status !== 'SCHEDULED') {
         return 'FT'
       }
