@@ -42,9 +42,6 @@ if (process.env.NODE_ENV === 'production') {
                 body: JSON.stringify(newSub),
                 headers: { 'Content-Type': 'application/json' }
               })
-              // newSub.notify(new Notification('Bedankt voor je subscription', {
-              //   body: 'sdf'
-              // }))
             })
             .catch(err => console.error(err))
         }

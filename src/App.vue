@@ -1,27 +1,22 @@
 <template>
   <div id="app">
-    <container />
+    <div class="bg-container"/>
+    <home />
   </div>
 </template>
 
 <script>
-import Container from './components/Container.vue'
+import Home from './components/Home.vue'
 
 export default {
   name: 'App',
   components: {
-    Container
+    Home
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Nunito, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import "scss/main.scss";
+
 </style>

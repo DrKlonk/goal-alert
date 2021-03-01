@@ -1,10 +1,18 @@
 module.exports = {
   pwa: {
     name: 'Atalanta Goal Alert',
-    short_name: 'Atalantaaaa!',
+    shortName: 'Atalantaaaa!',
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: 'src/service-worker.js'
+    },
+    themeColor: '#0071BC'
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        additionalData: '@import "@/scss/_variables.scss";'
+      }
     }
   }
 }

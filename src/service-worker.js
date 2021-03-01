@@ -9,7 +9,6 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 let clickOpenUrl
 
 self.addEventListener('push', event => {
-  console.log('pushing', event)
   clickOpenUrl = 'https://goal-alert.herokuapp.com'
   const options = {
     body: 'Jenk me naar de app!!@!',
