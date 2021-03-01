@@ -7,8 +7,8 @@
   <div class="match__main">
     <div class="match__time">{{ getMatchTime(match) }}</div>
     <div class="match__teams">
-      <div class="match__team">{{ match.homeTeam.name }}<span class="match__score" :class="getScoreClass(match)">{{ getTeamScore(match, 'homeTeam') }}</span></div>
-      <div class="match__team">{{ match.awayTeam.name }}<span class="match__score" :class="getScoreClass(match)">{{ getTeamScore(match, 'awayTeam') }}</span></div>
+      <div class="match__team match__team--home">{{ match.homeTeam.name }}<span class="match__score match__score--home" :class="getScoreClass(match)">{{ getTeamScore(match, 'homeTeam') }}</span></div>
+      <div class="match__team match__team--away">{{ match.awayTeam.name }}<span class="match__score match__score--away" :class="getScoreClass(match)">{{ getTeamScore(match, 'awayTeam') }}</span></div>
     </div>
   </div>
 </div>
@@ -105,6 +105,9 @@ export default {
     color: $color-grey-light;
     font-size: 1.6rem;
     display: flex;
+    @media (min-width: 600px) {
+      padding: .5rem 0;
+    }
   }
 
   &__time {
@@ -125,6 +128,7 @@ export default {
 
     @media (min-width: 600px) {
       flex-direction: row;
+      justify-content: center;
     }
   }
 
@@ -132,11 +136,36 @@ export default {
     display: flex;
     justify-content: space-between;
 
+    @media (min-width: 600px) {
+      flex: 1;
+      justify-content: flex-end;
+    }
+    &--home {
+      @media (min-width: 600px) {
+        position: relative;
+        &::after {
+          content: "-";
+          position: absolute;
+          font-weight: 700;
+          right: -4px;
+        }
+      }
+    }
+    &--away {
+      @media (min-width: 600px) {
+        flex-direction: row-reverse;
+      }
+    }
+
   }
 
   &__score {
     color: $color-white;
     font-weight: 700;
+    padding-right: .5rem;
+    @media (min-width: 600px) {
+      padding: 0 1rem;
+    }
     &--win {
       color: $color-score--win;
     }

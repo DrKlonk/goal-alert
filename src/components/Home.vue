@@ -3,7 +3,7 @@
   <h1 v-if="isLoading">Aan het laden...</h1>
   <template v-else>
     <template v-if="isAMatchGoingOn">
-      <h2>We zijn live!</h2>
+      <h2>We zijn LIVE!</h2>
       <match-display  :match="currentMatch"/>
     </template>
     <h2 v-else>Op dit moment is er geen wedstrijd bezig</h2>
