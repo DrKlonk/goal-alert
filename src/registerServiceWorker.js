@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
   register(`${process.env.BASE_URL}service-worker.js`, {
     ready () {
       console.log(
-        'App is being served from cache by a service workert.'
+        'App is being served from cache by a service worker.'
       )
 
       // Get permission for notifications on startup
@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'production') {
               }
               console.log('Adding new subscription to MongoDB')
               fetch(
-                'https://buttercup-artistic-utahceratops.glitch.me/subscribe',
+                '/subscribe',
                 {
                   method: 'POST',
                   body: JSON.stringify(newSub),

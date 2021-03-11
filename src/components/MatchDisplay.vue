@@ -50,10 +50,10 @@ export default {
       return matchDate.toTimeString().slice(0, 5)
     },
     getTeamScore ({ score }, team) {
-      if (score && score.fullTime && score.fullTime.homeTeam !== null) {
-        return score.fullTime[team]
+      if (score.fullTime.homeTeam === null) {
+        return '?'
       }
-      return '?'
+      return score.fullTime[team]
     },
     getScoreClass ({ homeTeam, score }) {
       if (score.fullTime.homeTeam === null) {
@@ -77,11 +77,11 @@ export default {
   margin-bottom: 1rem;
   border: solid 1px $color-grey-dark;
   border-radius: 3px;
-    box-shadow: 0 1rem 1rem rgba($color-black, .2);
-    background-color: $color-grey-dark;
+  box-shadow: 0 1rem 1rem rgba($color-black, .2);
+  background-color: $color-grey-dark;
 
   &__header {
-    background-color: $color-primary;
+    background-image: linear-gradient(to right, $color-primary, $color-primary-dark);
     padding: .5rem 1rem;
     color: $color-white;
     font-size: 1.4rem;
@@ -105,7 +105,8 @@ export default {
     color: $color-grey-light;
     font-size: 1.6rem;
     display: flex;
-    @media (min-width: 600px) {
+
+    @include respond(tab-port) {
       padding: .5rem 0;
     }
   }
@@ -126,7 +127,7 @@ export default {
     flex-direction: column;
     padding: .5rem;
 
-    @media (min-width: 600px) {
+    @include respond(tab-port) {
       flex-direction: row;
       justify-content: center;
     }
@@ -136,12 +137,13 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    @media (min-width: 600px) {
+    @include respond(tab-port) {
       flex: 1;
       justify-content: flex-end;
     }
+
     &--home {
-      @media (min-width: 600px) {
+      @include respond(tab-port) {
         position: relative;
         &::after {
           content: "-";
@@ -151,8 +153,9 @@ export default {
         }
       }
     }
+
     &--away {
-      @media (min-width: 600px) {
+      @include respond(tab-port) {
         flex-direction: row-reverse;
       }
     }
@@ -163,15 +166,19 @@ export default {
     color: $color-white;
     font-weight: 700;
     padding-right: .5rem;
-    @media (min-width: 600px) {
+
+    @include respond(tab-port) {
       padding: 0 1rem;
     }
+
     &--win {
       color: $color-score--win;
     }
+
     &--draw {
       color: $color-score--draw;
     }
+
     &--loss {
       color: $color-score--loss;
     }

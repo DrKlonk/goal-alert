@@ -43,15 +43,36 @@ export default {
   },
   methods: {
     getMatches () {
-      fetch('https://buttercup-artistic-utahceratops.glitch.me/matches', {
+      fetch('/matches', {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json'
         }
       }).then(matches => {
-        return matches.json()
+        if (!matches) {
+          // Get the matches ourselves when our server is not awake
+          const url = 'https://api.football-data.org/v2/teams/102/matches'
+          return fetch(url, {
+            headers: {
+              'X-Auth-Token': '27e4e6f686464cba84940a336a6b7295',
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            }
+          })
+            .then(response => {
+              return response.json()
+            })
+            .then((result) => {
+              return result
+            })
+        }
+        // Or return matches if we do get a result from our server
+        return matches
       }).then(result => {
         this.matches = result
+      }).catch(err => {
+        console.log('Something went wrong getting the matches', err)
+      }).finally(() => {
         this.isLoading = false
       })
     }
