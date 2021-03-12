@@ -64,7 +64,7 @@ function runNotificationChecks () {
       Math.round(Date.now() / 60000)
 
     console.log('Minutes to next match: ', minutesToNextMatch)
-    if (minutesToNextMatch === 1210) {
+    if (minutesToNextMatch === 1185) {
       sendNotifications('Wedstrijd over 10 uur!!!!')
     }
     if (minutesToNextMatch === 180) {

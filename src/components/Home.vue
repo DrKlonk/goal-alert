@@ -69,7 +69,9 @@ export default {
         // Or return matches if we do get a result from our server
         return matches
       }).then(result => {
-        this.matches = result
+        return result.json()
+      }).then(data => {
+        this.matches = data
       }).catch(err => {
         console.log('Something went wrong getting the matches', err)
       }).finally(() => {
