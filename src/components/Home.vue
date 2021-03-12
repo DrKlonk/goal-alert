@@ -6,7 +6,14 @@
       <h2>We zijn LIVE!</h2>
       <match-display  :match="currentMatch"/>
     </template>
-    <h2 v-else>Op dit moment is er geen wedstrijd bezig</h2>
+    <template v-else>
+      <h2>
+        Spannend!!!
+      </h2>
+      <h1>
+         {{ timeUntilNextMatch }}
+      </h1>
+    </template>
 
     <h2>Komende wedstrijden</h2>
     <match-display
@@ -94,6 +101,19 @@ export default {
     },
     currentMatch () {
       return this.matches.find(match => match.status === 'IN_PLAY')
+    },
+    nextMatch () {
+      return this.scheduledMatches[0]
+    },
+    timeUntilNextMatch () {
+      const upcomingMatchDate = new Date(this.nextMatch.utcDate)
+      const totalMinutesToNextMatch =
+        Math.round(upcomingMatchDate.getTime() / 60000) -
+        Math.round(Date.now() / 60000)
+
+      const hoursToNextMatch = Math.floor(totalMinutesToNextMatch / 60)
+      const minutesToNextMatch = totalMinutesToNextMatch % 60
+      return `Nog ${hoursToNextMatch} uur en ${minutesToNextMatch} minuten!`
     },
     finishedMatches () {
       return this.matches
