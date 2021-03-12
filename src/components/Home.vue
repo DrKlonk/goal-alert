@@ -29,18 +29,22 @@
 import MatchDisplay from './MatchDisplay.vue'
 export default {
   name: 'Container',
+
   data () {
     return {
       isLoading: true,
       matches: []
     }
   },
+
   components: {
     MatchDisplay
   },
+
   created () {
     this.getMatches()
   },
+
   methods: {
     getMatches () {
       fetch('/matches', {
@@ -79,6 +83,7 @@ export default {
       })
     }
   },
+
   computed: {
     isAMatchGoingOn () {
       return !!this.currentMatch

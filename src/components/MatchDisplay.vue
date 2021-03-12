@@ -16,12 +16,15 @@
 
 <script>
 export default {
+  name: 'MatchDisplay',
+
   props: {
     match: {
       type: Object,
       required: true
     }
   },
+
   methods: {
     getMatchDay ({ utcDate }) {
       const matchDate = new Date(utcDate)
@@ -68,7 +71,6 @@ export default {
       return `match__score--${result}`
     }
   }
-
 }
 </script>
 
