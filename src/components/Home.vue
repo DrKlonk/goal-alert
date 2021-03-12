@@ -55,9 +55,13 @@ export default {
           Accept: 'application/json'
         }
       }).then(matches => {
-        console.log(matches)
-        if (!matches) {
-          // Get the matches ourselves when our server is not awake
+        // Or return matches if we do get a result from our server
+        return matches
+      }).then(result => {
+        return result.json()
+      }).then(data => {
+        if (data.length === 0) {
+          // Get the matches ourselves when our server is not awake yet
           const url = 'https://api.football-data.org/v2/teams/102/matches'
           return fetch(url, {
             headers: {
@@ -70,15 +74,12 @@ export default {
               return response.json()
             })
             .then((result) => {
-              return result
+              this.matches = result
             })
+        } else {
+          // Everything is fine!
+          this.matches = data
         }
-        // Or return matches if we do get a result from our server
-        return matches
-      }).then(result => {
-        return result.json()
-      }).then(data => {
-        this.matches = data
       }).catch(err => {
         console.log('Something went wrong getting the matches', err)
       }).finally(() => {
