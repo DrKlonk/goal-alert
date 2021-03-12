@@ -43,6 +43,8 @@ export default {
 
   created () {
     this.getMatches()
+    // Set the title in a not-so pretty fashion
+    document.title = 'Atalanta goal alert'
   },
 
   methods: {
@@ -53,6 +55,7 @@ export default {
           Accept: 'application/json'
         }
       }).then(matches => {
+        console.log(matches)
         if (!matches) {
           // Get the matches ourselves when our server is not awake
           const url = 'https://api.football-data.org/v2/teams/102/matches'
