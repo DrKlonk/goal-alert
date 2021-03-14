@@ -5,7 +5,7 @@ const matchesLogic = require('../matchesLogic')
 const matches = [
   {
     id: 200282,
-    status: 'FINISHED',
+    status: 'IN_PLAY',
     score: {
       winner: 'HOME_TEAM',
       duration: 'REGULAR',
@@ -20,15 +20,12 @@ const matches = [
 const oldMatches = [
   {
     id: 200282,
-    status: 'IN_PLAY',
+    status: 'SCHEDULED',
     score: {
       winner: 'HOME_TEAM',
-      duration: 'REGULAR',
-      fullTime: {
-        homeTeam: 3,
-        awayTeam: 1
-      }
-    }
+      duration: 'REGULAR'
+    },
+    fullTime: null
   }
 ]
 
