@@ -34,6 +34,5 @@ self.addEventListener('notificationclick', event => {
 
 self.addEventListener('install', function (event) {
   // Make sure the new SW gets used immediately
-  pollServer()
   self.skipWaiting()
 })

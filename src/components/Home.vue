@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container">
   <h1 v-if="isLoading">Aan het laden...</h1>
   <template v-else>
     <template v-if="isAMatchGoingOn">
@@ -35,7 +35,7 @@
 <script>
 import MatchDisplay from './MatchDisplay.vue'
 export default {
-  name: 'Container',
+  name: 'Home',
 
   data () {
     return {
@@ -113,7 +113,13 @@ export default {
 
       const hoursToNextMatch = Math.floor(totalMinutesToNextMatch / 60)
       const minutesToNextMatch = totalMinutesToNextMatch % 60
-      return `Nog ${hoursToNextMatch} uur en ${minutesToNextMatch} minuten!`
+      if (hoursToNextMatch < 1) {
+        if (minutesToNextMatch < 2) {
+          return 'We gaan bijna beginnen!'
+        }
+        return `Nog ${minutesToNextMatch} minuten tot de volgende pot!`
+      }
+      return `Nog ${hoursToNextMatch} uur en ${minutesToNextMatch} minuten tot de volgende pot!`
     },
     finishedMatches () {
       return this.matches
@@ -132,5 +138,9 @@ export default {
 </script>
 
 <style lang="scss">
+.container {
+  max-width: 60rem;
+  width: 100%;
+}
 
 </style>

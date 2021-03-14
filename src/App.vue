@@ -17,5 +17,9 @@ export default {
 
 <style lang="scss">
 @import "scss/main.scss";
+#app {
+  display: flex;
+  justify-content: center;
+}
 
 </style>
