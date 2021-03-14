@@ -53,19 +53,14 @@ function runNotificationChecks (matches, oldMatches) {
   }
 
   // Match started
-  if (
-    matches.filter(
-      (m) =>
-        liveStatuses.includes(m.status) &&
-        !liveStatuses.includes(oldMatches.find((om) => om.id === m.id).status)
-    )
-  ) {
+  if (matches.find(m => liveStatuses.includes(m.status) &&
+        !liveStatuses.includes(oldMatches.find((om) => om.id === m.id).status))) {
     sendNotifications('De bal rolt!')
   }
 
   // Match finished
   if (matches.find(m => m.status === 'FINISHED' &&
-        oldMatches.find((om) => om.id === m.id).status === 'IN_PLAY')) {
+        liveStatuses.includes(oldMatches.find((om) => om.id === m.id).status))) {
     sendNotifications('Klaaaaarrrrr')
   }
 
