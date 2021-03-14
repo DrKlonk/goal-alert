@@ -37,24 +37,3 @@ self.addEventListener('install', function (event) {
   pollServer()
   self.skipWaiting()
 })
-
-function pollServer () {
-  wakeUpServer()
-  // Poll the server every 29 minutes, to keep the server awake for notifications
-  setInterval(() => {
-    wakeUpServer()
-  }, 1740000)
-}
-
-function wakeUpServer () {
-  fetch('/wakemeup')
-    .then(response => {
-      return response.json()
-    })
-    .then(result => {
-      console.log(result.message)
-    })
-    .catch(err => {
-      console.error(err)
-    })
-}

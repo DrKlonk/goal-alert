@@ -142,6 +142,7 @@ export default {
     @include respond(tab-port) {
       flex: 1;
       justify-content: flex-end;
+      margin-top: .325rem;
     }
 
     &--home {

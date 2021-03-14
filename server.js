@@ -51,6 +51,7 @@ app.get('/matches', (req, res) => {
 })
 
 app.get('/wakemeup', (req, res) => {
+  console.log('Woke up!')
   res.send({ message: 'Server is awake!' })
 })
 
