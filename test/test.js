@@ -6,12 +6,18 @@ const matches = [
   {
     id: 200282,
     status: 'IN_PLAY',
+    homeTeam: {
+      id: 102
+    },
+    awayTeam: {
+      id: 105
+    },
     score: {
       winner: 'HOME_TEAM',
       duration: 'REGULAR',
       fullTime: {
-        homeTeam: 3,
-        awayTeam: 1
+        homeTeam: 2,
+        awayTeam: 2
       }
     }
   }
@@ -20,12 +26,21 @@ const matches = [
 const oldMatches = [
   {
     id: 200282,
-    status: 'SCHEDULED',
+    status: 'PAUSED',
+    homeTeam: {
+      id: 102
+    },
+    awayTeam: {
+      id: 105
+    },
     score: {
       winner: 'HOME_TEAM',
-      duration: 'REGULAR'
-    },
-    fullTime: null
+      duration: 'REGULAR',
+      fullTime: {
+        homeTeam: 2,
+        awayTeam: 1
+      }
+    }
   }
 ]
 

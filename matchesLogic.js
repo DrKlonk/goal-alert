@@ -4,6 +4,7 @@ const webPush = require('web-push')
 
 let matches = []
 let oldMatches = []
+const liveStatuses = ['LIVE', 'IN_PLAY', 'PAUSED']
 
 function pollForMatches () {
   const url = 'https://api.football-data.org/v2/teams/102/matches'
@@ -31,23 +32,40 @@ function pollForMatches () {
 }
 
 function runNotificationChecks (matches, oldMatches) {
-  const liveStatuses = ['LIVE', 'IN_PLAY', 'PAUSED']
   const currentMatch = matches.find((f) => liveStatuses.includes(f.status))
 
   const upcomingMatch = matches
     .filter((f) => f.status === 'SCHEDULED')
     .sort((a, b) => (a.utcDate < b.utcDate ? -1 : 1))[0]
 
-  // Goal scored
+  // Goal scored check
   if (currentMatch) {
     // Lets check for goals
-    const oldCurrentMatch = oldMatches.find((om) => om.id === currentMatch.id && liveStatuses.includes(om.status))
-    if (oldCurrentMatch) {
-      const currentScore = Object.values(currentMatch.score.fullTime).toString()
-      const oldScore = Object.values(oldCurrentMatch.score.fullTime).toString()
+    const oldCurrentMatch = oldMatches.find((om) => om.id === currentMatch.id)
 
-      if (currentScore !== oldScore) {
-        sendNotifications('Er is gescoord!')
+    if (oldCurrentMatch) {
+      let homeTeamGoals, awayTeamGoals
+      // Check for first minute goals when the old match was not "live"
+      if (!liveStatuses.includes(oldCurrentMatch.status)) {
+        homeTeamGoals = currentMatch.score.fullTime.homeTeam
+        awayTeamGoals = currentMatch.score.fullTime.awayTeam
+      } else {
+        // Note that a team can potentially score more than 1 goal in a minute.
+        homeTeamGoals = currentMatch.score.fullTime.homeTeam - oldCurrentMatch.score.fullTime.homeTeam
+        awayTeamGoals = currentMatch.score.fullTime.awayTeam - oldCurrentMatch.score.fullTime.awayTeam
+      }
+
+      if (
+        (currentMatch.homeTeam.id === 102 && homeTeamGoals > 0) ||
+        (currentMatch.awayTeam.id === 102 && awayTeamGoals > 0)
+      ) {
+        sendNotifications('JAAAA Atalanta heeft gescoord!!!')
+      }
+      if (
+        (currentMatch.homeTeam.id !== 102 && homeTeamGoals > 0) ||
+        (currentMatch.awayTeam.id !== 102 && awayTeamGoals > 0)
+      ) {
+        sendNotifications('Potverdorie, we hebben een tegengoal.')
       }
     }
   }
