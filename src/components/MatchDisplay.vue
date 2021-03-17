@@ -110,6 +110,7 @@ export default {
     color: $color-grey-light;
     font-size: 1.6rem;
     display: flex;
+    padding-top: .25rem;
 
     @include respond(tab-port) {
       padding: .5rem 0;
