@@ -1,4 +1,4 @@
-const VERSION_NUMBER = '1.5'
+const VERSION_NUMBER = '1.6'
 
 self.__precacheManifest = [].concat(self.__precacheManifest || [])
 
