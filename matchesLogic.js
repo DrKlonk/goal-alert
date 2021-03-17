@@ -2,66 +2,7 @@ const fetch = require('node-fetch')
 const Subscription = require('./Subscription')
 const webPush = require('web-push')
 
-let matches = [
-  // {
-  //   id: 309867,
-  //   competition: {
-  //     id: 2019,
-  //     name: 'Serie A',
-  //     area: {
-  //       name: 'Italy',
-  //       code: 'ITA',
-  //       ensignUrl:
-  //         'https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg'
-  //     }
-  //   },
-  //   season: {
-  //     id: 638,
-  //     startDate: '2020-09-20',
-  //     endDate: '2021-05-23',
-  //     currentMatchday: 27,
-  //     winner: null
-  //   },
-  //   utcDate: '2021-03-21T11:30:00Z',
-  //   status: 'PAUSED',
-  //   matchday: 28,
-  //   stage: 'REGULAR_SEASON',
-  //   group: 'Regular Season',
-  //   lastUpdated: '2020-12-18T23:34:52Z',
-  //   odds: {
-  //     msg: 'Activate Odds-Package in User-Panel to retrieve odds.'
-  //   },
-  //   score: {
-  //     winner: null,
-  //     duration: 'REGULAR',
-  //     fullTime: {
-  //       homeTeam: null,
-  //       awayTeam: null
-  //     },
-  //     halfTime: {
-  //       homeTeam: null,
-  //       awayTeam: null
-  //     },
-  //     extraTime: {
-  //       homeTeam: null,
-  //       awayTeam: null
-  //     },
-  //     penalties: {
-  //       homeTeam: null,
-  //       awayTeam: null
-  //     }
-  //   },
-  //   homeTeam: {
-  //     id: 450,
-  //     name: 'Hellas Verona FC'
-  //   },
-  //   awayTeam: {
-  //     id: 102,
-  //     name: 'Atalanta BC'
-  //   },
-  //   referees: []
-  // }
-]
+let matches = []
 let oldMatches = []
 
 function pollForMatches () {

@@ -56,7 +56,7 @@ app.get('/wakemeup', (req, res) => {
 })
 
 // Query for matches every minute at API football-data
-// setInterval(matchesLogic.pollForMatches, 60000)
+setInterval(matchesLogic.pollForMatches, 60000)
 
 const port = process.env.PORT || 4444
 app.listen(port, () => {
