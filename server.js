@@ -55,6 +55,9 @@ app.get('/wakemeup', (req, res) => {
   res.send({ message: 'Server is awake!' })
 })
 
+// Query for matches on start-up
+matchesLogic.pollForMatches()
+
 // Query for matches every minute at API football-data
 setInterval(matchesLogic.pollForMatches, 60000)
 

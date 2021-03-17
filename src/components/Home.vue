@@ -61,6 +61,7 @@ export default {
   },
 
   methods: {
+    // Get the matches from the Back end
     getMatches () {
       fetch('/matches', {
         headers: {
@@ -68,31 +69,11 @@ export default {
           Accept: 'application/json'
         }
       }).then(matches => {
-        // Or return matches if we do get a result from our server
         return matches
       }).then(result => {
         return result.json()
       }).then(data => {
-        if (data.length === 0) {
-          // Get the matches ourselves when our server is not awake yet
-          const url = 'https://api.football-data.org/v2/teams/102/matches'
-          return fetch(url, {
-            headers: {
-              'X-Auth-Token': '27e4e6f686464cba84940a336a6b7295',
-              'Content-Type': 'application/json',
-              Accept: 'application/json'
-            }
-          })
-            .then(response => {
-              return response.json()
-            })
-            .then((result) => {
-              this.matches = result || []
-            })
-        } else {
-          // Everything is fine!
-          this.matches = data
-        }
+        this.matches = data || []
       }).catch(err => {
         console.log('Something went wrong getting the matches', err)
       }).finally(() => {
