@@ -31,6 +31,9 @@ export default {
       return matchDate.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long' })
     },
     getMatchTime ({ status, utcDate }) {
+      if (!utcDate || utcDate.slice(-10) === 'T00:00:00Z') {
+        return 'n.t.b.'
+      }
       if (status === 'PAUSED') {
         return 'HT'
       }
