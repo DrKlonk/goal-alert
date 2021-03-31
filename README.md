@@ -1,6 +1,6 @@
 # Atalanta Goal Alert
 
-This is a solution to the [Pod request access landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/pod-request-access-landing-page-eyTmdkLSG). Frontend Mentor challenges help me improve your coding skills by building realistic projects.
+As part of a bet I needed to notify my friends every time football club [Atalanta Bergamo](https://www.atalanta.it/en/) scores a goal. Instead of watching everything and sending whats app messages, I decided to make an app for it. 
 
 ## Table of contents
 
@@ -17,8 +17,6 @@ This is a solution to the [Pod request access landing page challenge on Frontend
 ## Overview
 
 ### The app
-
-As part of a bet I needed to notify my friends every time football club [Atalanta Bergamo](https://www.atalanta.it/en/) scores a goal. Instead of watching everything and sending whats app messages, I decided to make an app for it. 
 
 Users need to:
 - Get notifications when Atalanta Bergamo scores a goal
