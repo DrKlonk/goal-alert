@@ -18,15 +18,18 @@ This is a solution to the [Pod request access landing page challenge on Frontend
 
 ### The app
 
-As part of a bet I needed to notify my friends every time football club [Atalanta Bergamo](https://www.atalanta.it/en/) scores a goal. Instead of watching everything and sending whats app messages, I decided to make an app for it.
+As part of a bet I needed to notify my friends every time football club [Atalanta Bergamo](https://www.atalanta.it/en/) scores a goal. Instead of watching everything and sending whats app messages, I decided to make an app for it. 
 
 Users need to:
 - Get notifications when Atalanta Bergamo scores a goal
 - See upcoming and finished matches
 
+To install:
+You can check out the code, but won't be able to run it, since you'd need connection to the MongoDB, a football data token and a webpush private key which I'd rather keep to myself. Please don't check out the entire history of this repository and the lack of adding the .env to the gitignore file. But if you are reading this and then still overload my API token which would crash the app, then shame on you.
+
 ### Links
 
-- Live url: [Atalanta Goal Alert](https://goal-alert.herokuapp.com)
+- Live url (it is in Dutch): [Atalanta Goal Alert](https://goal-alert.herokuapp.com)
 
 ## My process
 
